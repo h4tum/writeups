@@ -1,0 +1,113 @@
+diff a/emulator6.cpp b/emulator6.cpp
+--- a/emulator6.cpp
++++ b/emulator6.cpp
+@@ -324,109 +324,6 @@ void CThread::systemCall(uint32_t mod, uint32_t funcid, uint8_t rd, uint8_t rs)
+         case SYSF_PRINTF:    // write formatted output to stdout
+             registers[0] = fprintfEmulated(stdout, (const char*)memory + registers[0], (uint64_t*)(memory + registers[1]));
+             break; 
+-        case SYSF_FPRINTF:   // write formatted output to file
+-            registers[0] = fprintfEmulated((FILE *)(registers[0]), (const char*)memory + registers[1], (uint64_t*)(memory + registers[2]));
+-            break;
+-            /*
+-        case SYSF_SNPRINTF:   // write formatted output to string buffer 
+-            // this works only in 64 bit windows
+-            dsize = registers[1];  // size of data to read
+-            if (checkSysMemAccess(registers[0], dsize, rd, rs, SHF_WRITE) < dsize) {
+-                interrupt(INT_ACCESS_WRITE); // write access violation
+-                ret = 0;
+-            }
+-            else ret = snprintf((char*)memory + registers[0], registers[1], (const char*)memory + registers[2], (const char*)memory + registers[3]);
+-            registers[0] = ret;
+-            break;*/
+-        case SYSF_FOPEN:     //  open file
+-            registers[0] = (uint64_t)fopen((const char*)memory + registers[0], (const char*)memory + registers[1]);
+-            break;
+-        case SYSF_FCLOSE:    // SYSF_FCLOSE
+-            registers[0] = (uint64_t)fclose((FILE*)registers[0]);
+-            break;
+-        case SYSF_FREAD:     // read from file
+-            dsize = registers[1] * registers[2];  // size of data to read
+-            if (checkSysMemAccess(registers[0], dsize, rd, rs, SHF_WRITE) < dsize) {
+-                interrupt(INT_ACCESS_WRITE); // write access violation
+-                registers[0] = 0;
+-            }
+-            else registers[0] = (uint64_t)fread(memory + registers[0], (size_t)registers[1], (size_t)registers[2], (FILE *)(size_t)registers[3]);
+-            break;
+-        case SYSF_FWRITE:    // write to file 
+-            dsize = registers[1] * registers[2];  // size of data to write
+-            if (checkSysMemAccess(registers[0], dsize, rd, rs, SHF_READ) < dsize) {
+-                interrupt(INT_ACCESS_READ); // write access violation
+-                registers[0] = 0;
+-            }
+-            else registers[0] = (uint64_t)fwrite(memory + registers[0], (size_t)registers[1], (size_t)registers[2], (FILE *)(size_t)registers[3]);
+-            break;
+-        case SYSF_FFLUSH:    // flush file 
+-            registers[0] = (uint64_t)fflush((FILE *)registers[0]);
+-            break;
+-        case SYSF_FEOF:      // check if end of file 
+-            registers[0] = (uint64_t)feof((FILE *)registers[0]);
+-            break;
+-        case SYSF_FTELL:     // get file position 
+-            registers[0] = (uint64_t)ftell((FILE *)registers[0]);
+-            break;
+-        case SYSF_FSEEK:     // set file position 
+-            registers[0] = (uint64_t)fseek((FILE *)registers[0], (long int)registers[1], (int)registers[2]);
+-            break;
+-        case SYSF_FERROR:    // get file error
+-            registers[0] = (uint64_t)ferror((FILE *)registers[0]);
+-            break;
+-        case SYSF_GETCHAR:   // read character from stdin 
+-            registers[0] = (uint64_t)getchar();
+-            break;
+-        case SYSF_FGETC:     // read character from file 
+-            registers[0] = (uint64_t)fgetc((FILE *)registers[0]);
+-            break;
+-        case SYSF_FGETS:     // read string from file 
+-            dsize = registers[1];  // size of data to read
+-            if (checkSysMemAccess(registers[0], dsize, rd, rs, SHF_WRITE) < dsize) {
+-                interrupt(INT_ACCESS_WRITE); // write access violation
+-                registers[0] = 0;
+-            }
+-            else {
+-                registers[0] = (uint64_t)fgets((char *)(memory+registers[0]), (int)registers[1], (FILE *)registers[2]);
+-            }
+-            break;
+-        case SYSF_GETS_S:     // read string from stdin 
+-            dsize = registers[1];  // size of data to read
+-            if (checkSysMemAccess(registers[0], dsize, rd, rs, SHF_WRITE) < dsize) {
+-                interrupt(INT_ACCESS_WRITE); // write access violation
+-                registers[0] = 0;
+-            }
+-            else {
+-                char * r = fgets((char *)(memory+registers[0]), (int)registers[1], stdin);
+-                if (r == 0) registers[0] = 0;  // registers[0] unchanged if success
+-            }
+-            break;
+-            /*
+-        case SYSF_SCANF:     // read formatted input from stdio 
+-            ret = vscanf((char *)(memory+registers[0]), (va_list)(memory + registers[1]));
+-            if (checkSysMemAccess(registers[0], ret, rd, rs, SHF_WRITE) < ret) {
+-                interrupt(INT_ACCESS_WRITE); // write access violation
+-            }
+-            registers[0] = ret;
+-            break;
+-        case SYSF_FSCANF:    // read formatted input from file 
+-            ret = vfscanf((FILE *)registers[0], (char *)(memory+registers[1]), (va_list)(memory + registers[2]));
+-            if (checkSysMemAccess(registers[0], ret, rd, rs, SHF_WRITE) < ret) {
+-                interrupt(INT_ACCESS_WRITE); // write access violation
+-            }
+-            registers[0] = ret;
+-            break;
+-        case SYSF_SSCANF:    // read formatted input from string buffer 
+-            ret = vsscanf((char *)(memory+registers[0]), (char *)(memory+registers[1]), (va_list)(memory + registers[2]));
+-            if (checkSysMemAccess(registers[0], ret, rd, rs, SHF_WRITE) < ret) {
+-                interrupt(INT_ACCESS_WRITE); // write access violation
+-            }
+-            registers[0] = ret;
+-            break; */
+-        case SYSF_REMOVE:    // delete file 
+-            registers[0] = (uint64_t)remove((char *)(memory+registers[0]));
+-            break;
+         }
+     }
+ }
