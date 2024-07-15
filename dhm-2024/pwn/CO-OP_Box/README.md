@@ -1,10 +1,10 @@
 Writeup CO-OP Box
 ===
 
-Category: pwn
-Final point value: 500
-Number of solves: 1
-Solved by: fkil
+- Category: pwn
+- Final point value: 500
+- Number of solves: 1
+- Solved by: fkil
 
 ## Challenge Description
 
@@ -19,7 +19,7 @@ We need to exploit a VirtualBox CVE that has a PoC for linux and need to port it
 
 From the [security advisory](https://github.com/google/security-research/security/advisories/GHSA-q7p4-pxjx-6h42), we can extract the following:
 
-In the `VIRTIONET_CTRL_VLAN` the bounds-check for the `uVlanId` is inverted, thus we can set/clear bits out-of-bounds. Did anyone test this feature? **WTF**
+In the `VIRTIONET_CTRL_VLAN` the bounds-check for the `uVlanId` is inverted, thus we can set/clear bits out-of-bounds (but not in-bounds).
 
 ## Analysis of Linux PoC
 
@@ -27,9 +27,9 @@ As the `uVlanId` is a 16-bit integer, we have a bounded relative arbitrary write
 
 ### VirtualBox device structures
 
-The PoC is making use of the device structures of VirtualBox. The `virtio-net` device is a device registered through VirtualBox's Pluggable Device Manager (PDM), so let's take a look at it's structures and their allocation. 
+The PoC is making use of the device structures of VirtualBox. The `virtio-net` device is a device registered through VirtualBox's Pluggable Device Manager (PDM), so let's take a look at its structures and their allocation. 
 
-When PDM devices are initialized in `pdmR3DevInit` of `VBOX/VMM/VMMR3/PDMDevice.cpp`, the ring-3 (`R3`/user-space) component will go through the list of registered devices and for each device perform the allocation via a hypercall to the ring-0 (`R0`/kernel-space). The allocation routine in `R0` will allocate a memory object for the following data (taken from `VBox/VMM/VMMR0/PDMR0Device.cpp`):
+When PDM devices are initialized in `pdmR3DevInit` of `VBOX/VMM/VMMR3/PDMDevice.cpp`, the ring-3 (`R3`/user-space) component will go through the list of registered devices and for each device perform the allocation via a hypercall to the ring-0 (`R0`/kernel-space) component. The allocation routine in `R0` will allocate a memory object for the following data (taken from `VBox/VMM/VMMR0/PDMR0Device.cpp`):
 
 ```
 --------------------------------------
@@ -66,13 +66,13 @@ shared PCI device data (optional)
 
 The `R0` component will then do much of the initialization and map the `R3` and shared data into the `R3` process. Afterwards, the `R3` component will call the device's `Construct` routine to finish initialization.
 
-For the PoC, the `R3` and shared `PCI` data is of interest. The **dev**ice **ins**tance data corresponds to `PDMDEVINSR3`, the instance data for the `virtio-net` device corresponds to `VIRTIONET` and contains the bitmap to which we have a relative write. Finally, the device is connected via a virtual `PCI` and its shared data corresponds to an instance of `PDMPCIDEV`.
+For the PoC, the `R3` and shared PCI data is of interest. The **dev**ice **ins**tance data corresponds to `PDMDEVINSR3`, the instance data for the `virtio-net` device corresponds to `VIRTIONET` and contains the bitmap to which we have a relative write. Finally, the device is connected via a virtual PCI and its shared data corresponds to an instance of `PDMPCIDEV`.
 
-As such, the data we can consistenly access with the vulnerability is the shared instance data, default critical section and the shared PCI device data (`PDMPCIDEV`)
+As such, the data we can consistently access with the vulnerability is the shared instance data, default critical section and the shared PCI device data.
 
 ### Getting a leak primitive
 
-`PCI` devices have a configuration space that can be read from and written to. If one can somehow modify the pointer from where data is read, we could abuse it to read data and leak pointers. In the implementation of the config space read, an indirect call using the `pfnConfigRead` field of the `PCMPCIDEV` structure is performed. 
+PCI devices have a configuration space that can be read from and written to. If one can somehow modify the pointer from where data is read, we could abuse it to read data and leak pointers. In the implementation of the config space read, an indirect call using the `pfnConfigRead` field of the `PCMPCIDEV` structure is performed. 
 
 For `virtio-net` this field is set to `virtioR3PciConfigRead`, which is inside the `VBoxDD` library. Let's look at what the PCI config read implementation does (`virtioR3PciConfigRead` in `VBox/Devices/VirtIO/VirtioCore.cpp`):
 
@@ -100,7 +100,7 @@ Both values are contained inside the config data for `aVirtQueues[4]`, thus the 
 
 ### Getting RCE in Linux
 
-The PoC proceeds by writing a ROP and shellcode into a the device data area and relocating the stack to our ROP payload by overwriting `pfnConfigRead` and `pDevIns`. The ROP does the following:
+The PoC proceeds by writing a ROP and shellcode into the device data area and relocating the stack to the ROP payload by overwriting `pfnConfigRead` and `pDevIns`. The ROP does the following:
 
  - Load `RTQueryFileSize` (located in `VBoxRT`) from the `GOT` of `VBoxDD`
  - Add an offset to get a pointer to `RTMemProtect` (also located in `VBoxRT`)
@@ -156,7 +156,7 @@ Thus, to leak an arbitrary byte from `ptr`, we do:
 
  - Set `pDevInsR3` of `PDMPCIDEV` to `ptr-0xf1`
  - Set `pfnConfigRead` to `sub_18006a3f0`
- - perform a pci read, triggering the call to `sub_18006a3f0`
+ - perform a PCI config read, triggering the call to `sub_18006a3f0`
  - Reset `pDevInsR3` and `pfnConfigRead` to their original values
  - With the initial leak gadget leak the byte from `PDMPCIDEV + 0xc`
      - To get the correct field to read, one can inspect the fake `VIRTIO` via `WinDbg` and see which field this corresponds to
@@ -166,4 +166,5 @@ Thus, to leak an arbitrary byte from `ptr`, we do:
 
 With our arbitrary read gadget we now can leak a `kernel32.dll` address and get the address of `WinExec`. There are many options, and we opted to leak the address of `CloseHandle` from the `IAT`.
 
-Next, we simply had to write the payload string `"calc.exe"` inside the device data area, overwrite `pfnConfigRead` to `WinExec` and `pDevInsR3` to the address of our payload string and issue a pci config read to spawn a calculator.
+Next, we simply had to write the payload string `"calc.exe"` inside the device data area, overwrite `pfnConfigRead` to `WinExec` and `pDevInsR3` to the address of our payload string and issue a PCI config read to spawn a calculator.
+
