@@ -1,4 +1,4 @@
-Writeup CO-OP Box
+CO-OP Box
 ===
 
 - Category: pwn
@@ -113,7 +113,7 @@ The bug and the general logic how to get an initial leak can be easily ported to
 
 ### RCE in Windows
 
-The binary is compiled with Windows' `ControlFlowGuard` protection, thus we cannot overwrite `pfnConfigRead` to an arbitrary gadget to start a ROP chain and need to find a different way. Without going into too much depth, `ControlFlowGuard` makes sure that each indirect call target is a beginning of a defined function. Thus, while we cannot overwrite it to a gadget, we can overwrite it to an arbitrary function!
+The binary is compiled with Windows' `ControlFlowGuard` protection, thus we cannot overwrite `pfnConfigRead` to an arbitrary gadget to start a ROP chain and need to find a different way. Without going into too much depth, `ControlFlowGuard` makes sure that each indirect call target is a valid possible indirect call target (which is determined by the compiler+linker). Thus, while we cannot overwrite it to a gadget, we can still overwrite it to one of many possible functions (generally including all functions exported by DLLs)!
 
 Let's take a closer look at the first two arguments that will be passed to `pfnConfigRead`:
  1. value of `pDevInsR3` from the internal `PDMPCIDEV` data (which we have full control over)
@@ -125,15 +125,15 @@ As such, we need to somehow build an arbitrary read gadget and then we could lea
 
 ### Getting an arbitrary read primitive
 
-We can call arbitrary functions in `VBoxDD` by overwriting `pfnConfigRead`. As mentioned, we can fully control the first argument and the second argument points to an area under our control. However, we cannot get the return value as it will be interpreted as an internal error code of VirtualBox. Therefore, the return value should optimally be `0`/`VINF_SUCCESS`.
+We can call arbitrary indirect call targets in `VBoxDD` by overwriting `pfnConfigRead`. As mentioned, we can fully control the first argument and the second argument points to an area under our control. However, we cannot get the return value as it will be interpreted as an internal error code of VirtualBox. Therefore, the return value should optimally be `0`/`VINF_SUCCESS`.
 
-Our optimal function thus should:
+Our optimal target thus should:
  - not call any other function
  - read a value from an offset to `arg1`
  - write this value to an offset to `arg2`
  - return 0
 
-`VBoxDD.dll` is pretty big, so there are good chances to find such a function. We used `BinaryNinja` and exported the decompiled code for all functions inside the `VBoxDD.dll` binary. Then, via regex search we looked for functions that fulfilled the following properties and found the following function:
+`VBoxDD.dll` is pretty big, so there are good chances to find such a target. We used `BinaryNinja` and exported the decompiled code for all functions inside the `VBoxDD.dll` binary. Then, via regex search we looked for functions that fulfilled the following properties and found the following function (which is also an indirect call target):
 
 ```cpp
 18006a3f0  int64_t sub_18006a3f0(void* arg1, int64_t arg2)
@@ -167,4 +167,5 @@ Thus, to leak an arbitrary byte from `ptr`, we do:
 With our arbitrary read gadget we now can leak a `kernel32.dll` address and get the address of `WinExec`. There are many options, and we opted to leak the address of `CloseHandle` from the `IAT`.
 
 Next, we simply had to write the payload string `"calc.exe"` inside the device data area, overwrite `pfnConfigRead` to `WinExec` and `pDevInsR3` to the address of our payload string and issue a PCI config read to spawn a calculator.
+
 
