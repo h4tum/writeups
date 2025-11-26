@@ -1,9 +1,9 @@
 # Writeup: Keypad (WHY2025 CTF)
 
-**Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-**Challenge:** Keypad
-**Category:** Forensics
-**Solved by:** [dopri](https://github.com/DoPri/)
+- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
+- **Challenge:** Keypad
+- **Category:** Forensics
+- **Solved by:** [dopri](https://github.com/DoPri/)
 
 We are provided with two images (`Keypad_1.jpg`, `Keypad_2.jpg`) and a Saleae Logic analyzer capture file (`Keypad.sal`).
 

@@ -1,9 +1,9 @@
 # Writeup: 23drivers (WHY2025 CTF)
 
-**Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-**Challenge:** 23drivers
-**Category:** Web
-**Solved by:** [dopri](https://github.com/DoPri/)
+- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
+- **Challenge:** 23drivers
+- **Category:** Web
+- **Solved by:** [dopri](https://github.com/DoPri/)
 
 We are provided with a web challenge located at `https://23drivers.ctf.zone/`. The website contained a form asking for a "secret code".
 

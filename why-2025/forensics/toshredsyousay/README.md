@@ -1,9 +1,9 @@
 # Writeup: To Shreds You Say (WHY2025 CTF)
 
-**Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-**Challenge:** To Shreds You Say
-**Category:** Forensics
-**Solved by:** [dopri](https://github.com/DoPri/)
+- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
+- **Challenge:** To Shreds You Say
+- **Category:** Forensics
+- **Solved by:** [dopri](https://github.com/DoPri/)
 
 We are provided with a PDF file `ToShredsYouSay-1.pdf`.
 

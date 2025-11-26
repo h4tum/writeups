@@ -1,9 +1,9 @@
 # Writeup: Bitlocked (WHY2025 CTF)
 
-**Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-**Challenge:** Bitlocked
-**Category:** Forensics
-**Solved by:** [dopri](https://github.com/DoPri/)
+- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
+- **Challenge:** Bitlocked
+- **Category:** Forensics
+- **Solved by:** [dopri](https://github.com/DoPri/)
 
 We are provided with a 7-zip archive `SD_card.7z` (containing a disk image) and a photo `Photo_SD_card.jpg`.
 

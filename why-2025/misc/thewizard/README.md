@@ -1,9 +1,9 @@
 # Writeup: The Wizard (WHY2025 CTF)
 
-**Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-**Challenge:** The Wizard
-**Category:** Misc
-**Solved by:** [dopri](https://github.com/DoPri/)
+- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
+- **Challenge:** The Wizard
+- **Category:** Misc
+- **Solved by:** [dopri](https://github.com/DoPri/)
 
 We are provided with a collection of Linux configuration files (dotfiles).
 

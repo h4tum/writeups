@@ -1,9 +1,9 @@
 # Writeup: Somkracht 65537 (WHY2025 CTF)
 
-**Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-**Challenge:** Somkracht 65537
-**Category:** Cryptography
-**Solved by:** [dopri](https://github.com/DoPri/)
+- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
+- **Challenge:** Somkracht 65537
+- **Category:** Cryptography
+- **Solved by:** [dopri](https://github.com/DoPri/)
 
 We are provided with a Python script `challenge.py`.
 

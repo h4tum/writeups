@@ -1,9 +1,9 @@
 # Writeup: Zenmaster (WHY2025 CTF)
 
-**Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-**Challenge:** Zenmaster  
-**Category:** Reverse Engineering  
-**Solved by:** [dopri](https://github.com/DoPri/)
+- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
+- **Challenge:** Zenmaster
+- **Category:** Reverse Engineering
+- **Solved by:** [dopri](https://github.com/DoPri/)
 
 We are provided with an AMD microcode update file named `cpu008A0F00_ver08A000FF.bin`. The challenge infrastructure allowed us to upload an ELF file and receive its user-mode output, suggesting we needed to trigger specific CPU behavior modified by this microcode.
 
