@@ -1,0 +1,347 @@
+Date:        07112025 (Fri Jul 11 2025)
+Revision:    08a000ff
+Format:      8004
+Patchlen:    00
+Init:        00
+Checksum:    00000000
+NorthBridge: 0000:0000
+SouthBridge: 0000:0000
+Cpuid:       00008a00 AMD Ryzen (Mendocino)
+  Stepping   0
+  Model:     0
+  Extmodel:  10
+  Extfam:    8
+BiosRev:     00
+Flags:       00
+Reserved:    0000
+Signature:   7e... (use --verbose to see) (GOOD)
+Modulus:     80... (use --verbose to see)
+Check:       17... (use --verbose to see) (GOOD)
+Autorun:     false
+Encrypted:   false
+Revision:    08a000ff (Signed)
+; Patch 0x8a000ff Match Registers (44 total)
+; (use --verbose to see empty slots)
+	[0 ] 0CE0 @fpatan
+; Patch 0x8a000ff OpQuad Disassembly (64 total)
+; (use --verbose to see further details)
+.quad  0, 0x00000001	; @0x1fc0
+	mov     	reg15, reg15, rax
+	mov     	reg14, reg14, 0x907f
+	shl     	reg14, reg14, 0x000c
+	add     	reg14, reg14, 0x01a9
+.quad  1, 0x00000001	; @0x1fc1
+	sub     	reg0, reg0, reg14
+	ld.p    	7:[reg0+0x3d2], reg0
+	mov     	rax, reg0, 0x0041
+	mov     	rbx, reg0, 0xf1a9
+.quad  2, 0x00000001	; @0x1fc2
+	shl     	rbx, rbx, 0x0010
+	mov     	reg15, reg15, 0x6761
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0x6c66
+.quad  3, 0x00000001	; @0x1fc3
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x007b
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+.quad  4, 0x00000001	; @0x1fc4
+	add     	rbx, rbx, 0x0001
+	mov     	reg14, reg14, 0x4257
+	ld      	reg13, ms:[reg14+reg0]
+	mov     	reg15, reg15, 0x3a1b
+.quad  5, 0x00000001	; @0x1fc5
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0xd1d0
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+.quad  6, 0x00000001	; @0x1fc6
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x6a4f
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0x82d3
+.quad  7, 0x00000001	; @0x1fc7
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x6a18
+.quad  8, 0x00000001	; @0x1fc8
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0x8583
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+.quad  9, 0x00000001	; @0x1fc9
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x6f14
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0x8381
+.quad 10, 0x00000001	; @0x1fca
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x6f4e
+.quad 11, 0x00000001	; @0x1fcb
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0x83d3
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+.quad 12, 0x00000001	; @0x1fcc
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x694d
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0x86d0
+.quad 13, 0x00000001	; @0x1fcd
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x3d1f
+.quad 14, 0x00000001	; @0x1fce
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0x8cd2
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+.quad 15, 0x00000001	; @0x1fcf
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x6d1b
+	shl     	reg15, reg15, 0x0010
+	add     	reg15, reg15, 0xd0d1
+.quad 16, 0x00000001	; @0x1fd0
+	xor     	reg15, reg15, reg13
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+	add     	rbx, rbx, 0x0004
+	mov     	reg15, reg15, 0x007d
+.quad 17, 0x00000001	; @0x1fd1
+	.dq     	0x18505c07cc079800 ; Unhandled Class 3
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 18, 0x03100082	; @0x1fd2
+	mov     	rbx, reg0, 000000
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 19, 0x00000001	; @0x1fd3
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 20, 0x00000001	; @0x1fd4
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 21, 0x00000001	; @0x1fd5
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 22, 0x00000001	; @0x1fd6
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 23, 0x00000001	; @0x1fd7
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 24, 0x00000001	; @0x1fd8
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 25, 0x00000001	; @0x1fd9
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 26, 0x00000001	; @0x1fda
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 27, 0x00000001	; @0x1fdb
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 28, 0x00000001	; @0x1fdc
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 29, 0x00000001	; @0x1fdd
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 30, 0x00000001	; @0x1fde
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 31, 0x00000001	; @0x1fdf
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 32, 0x00000001	; @0x1fe0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 33, 0x00000001	; @0x1fe1
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 34, 0x00000001	; @0x1fe2
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 35, 0x00000001	; @0x1fe3
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 36, 0x00000001	; @0x1fe4
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 37, 0x00000001	; @0x1fe5
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 38, 0x00000001	; @0x1fe6
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 39, 0x00000001	; @0x1fe7
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 40, 0x00000001	; @0x1fe8
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 41, 0x00000001	; @0x1fe9
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 42, 0x00000001	; @0x1fea
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 43, 0x00000001	; @0x1feb
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 44, 0x00000001	; @0x1fec
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 45, 0x00000001	; @0x1fed
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 46, 0x00000001	; @0x1fee
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 47, 0x00000001	; @0x1fef
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 48, 0x00000001	; @0x1ff0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 49, 0x00000001	; @0x1ff1
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 50, 0x00000001	; @0x1ff2
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 51, 0x00000001	; @0x1ff3
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 52, 0x00000001	; @0x1ff4
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 53, 0x00000001	; @0x1ff5
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 54, 0x00000001	; @0x1ff6
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 55, 0x00000001	; @0x1ff7
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 56, 0x00000001	; @0x1ff8
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 57, 0x00000001	; @0x1ff9
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 58, 0x00000001	; @0x1ffa
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 59, 0x00000001	; @0x1ffb
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 60, 0x00000001	; @0x1ffc
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 61, 0x00000001	; @0x1ffd
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 62, 0x00000001	; @0x1ffe
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+.quad 63, 0x00000001	; @0x1fff
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
+	<bad>   	reg0, reg0, reg0
