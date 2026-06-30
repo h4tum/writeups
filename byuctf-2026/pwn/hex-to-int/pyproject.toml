@@ -1,0 +1,7 @@
+[project]
+name = "hex-to-int"
+version = "0.1.0"
+requires-python = "~=3.13.0"
+dependencies = [
+    "pwntools~=4.15.0",
+]

@@ -1,0 +1,5 @@
+services:
+  heap2win:
+    build: .
+    ports:
+      - "9001:9001"

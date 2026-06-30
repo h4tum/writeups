@@ -1,0 +1,5 @@
+I think there was an intro 1 at some point, idk. Is it even an intro if it's second?
+
+Note: byuctf{welcome_to_rev_fellas} is a relic of the intro 1 challenge and intro 2 is solvable by pwning the remote binary
+
+chals.cyberjousting.com:1367 
