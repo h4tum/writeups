@@ -1,0 +1,18 @@
+services:
+  challenge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sekai-ppp:dist
+    privileged: true
+    ports:
+      - "${PORT:-5000}:5000"
+    environment:
+      JAIL_PORT: "5000"
+      JAIL_TIME: "300"
+      JAIL_CPU: "1000"
+      JAIL_MEM: "1G"
+      JAIL_PIDS: "128"
+      JAIL_TMP_SIZE: "16M"
+      JAIL_SYSCALLS: "personality"
+      TIMEOUT: "300"
