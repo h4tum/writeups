@@ -1,0 +1,7 @@
+services:
+  chal:
+    build: .
+    ports:
+      - '16767:16767'
+    restart: "always"
+    read_only: true
