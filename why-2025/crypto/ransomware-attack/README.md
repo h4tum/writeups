@@ -1,9 +1,7 @@
-# Writeup: Ransomware Attack (WHY2025 CTF)
-
-- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-- **Challenge:** Ransomware Attack
-- **Category:** Cryptography
-- **Solved by:** [dopri](https://github.com/DoPri/)
+Ransomware Attack
+===
+- Category: `crypto`
+- Author: `dopri`
 
 We are provided with an encryption script `encrypt.py` and an encrypted file `important.txt.encrypted`.
 

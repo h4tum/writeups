@@ -1,8 +1,9 @@
-# Dreamer
- - Category: pwn
- - Final point value: 313
- - Number of solves: 10
- - Solved by: `fkil`
+Dreamer
+===
+- Category: `pwn`
+- Final point value: 313
+- Number of solves: 10
+- Author: `fkil`
 
 ### Challenge Description
 

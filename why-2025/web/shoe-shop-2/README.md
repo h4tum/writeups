@@ -1,9 +1,7 @@
-# Writeup: Shoe Shop 2 (WHY2025 CTF)
-
-- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-- **Challenge:** Shoe Shop 2
-- **Category:** Web
-- **Solved by:** [dopri](https://github.com/DoPri/)
+Shoe Shop 2
+===
+- Category: `web`
+- Author: `dopri`
 
 The target is the web shop at "shoe-shop-2.ctf.zone". I need to access the admin's cart to retrieve the flag.
 

@@ -1,6 +1,7 @@
-# Insomnihack 2026
-
-## Peaky Binders
+Peaky Binders
+===
+- Category: `mobile`
+- Author: `cato447`
 
 In this challenge we are given a Peaky Binders APK.
 The attacker can supply an APK that is executed on the same phone as the Peaky Binders APK.

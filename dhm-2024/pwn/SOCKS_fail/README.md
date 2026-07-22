@@ -1,10 +1,9 @@
 SOCKS fail
 ===
-
-- Category: pwn
+- Category: `pwn`
 - Final point value: 403
 - Number of solves: 5
-- Solved by: fkil
+- Author: `fkil`
 
 ## Challenge Description
 

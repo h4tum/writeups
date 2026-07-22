@@ -1,8 +1,8 @@
-  
-# Rigged
- - Category: blockchain
- - Final point value: 276
- - Solved by: `fkil`
+Rigged
+===
+- Category: `blockchain`
+- Final point value: 276
+- Author: `fkil`
 
 ## Challenge Description
 

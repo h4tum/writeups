@@ -1,7 +1,8 @@
- # Coin Flip
- - Category: blockchain
- - Final point value: 100
- - Solved by: `fkil`
+Coin Flip
+===
+- Category: `blockchain`
+- Final point value: 100
+- Author: `fkil`
 
 ## Challenge Description
 

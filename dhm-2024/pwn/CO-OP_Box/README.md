@@ -1,10 +1,9 @@
 CO-OP Box
 ===
-
-- Category: pwn
+- Category: `pwn`
 - Final point value: 500
 - Number of solves: 1
-- Solved by: fkil
+- Author: `fkil`
 
 ## Challenge Description
 
@@ -167,5 +166,3 @@ Thus, to leak an arbitrary byte from `ptr`, we do:
 With our arbitrary read gadget we now can leak a `kernel32.dll` address and get the address of `WinExec`. There are many options, and we opted to leak the address of `CloseHandle` from the `IAT`.
 
 Next, we simply had to write the payload string `"calc.exe"` inside the device data area, overwrite `pfnConfigRead` to `WinExec` and `pDevInsR3` to the address of our payload string and issue a PCI config read to spawn a calculator.
-
-

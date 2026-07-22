@@ -1,5 +1,7 @@
-# Smooth RSA
-Category: `crypto`
+Smooth RSA
+===
+- Category: `crypto`
+- Author: `Explosiontime202`
 
 ## Setup
 

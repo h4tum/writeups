@@ -1,8 +1,8 @@
-
-# Unfair Trade
- - Category: blockchain
- - Final point value: 100
- - Solved by: `fkil`
+Unfair Trade
+===
+- Category: `blockchain`
+- Final point value: 100
+- Author: `fkil`
 
 ## Challenge Description
 
@@ -36,4 +36,3 @@ The solution script then performs the following steps:
  - Choose `24` as the amount we want to send at the end
  - Feed the contract money until it has more than `196-24=172` ether
  - Send `24` ether and win.
-

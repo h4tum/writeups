@@ -1,7 +1,8 @@
- # Thanks
- - Category: blockchain
- - Final point value: 100
- - Solved by: `fkil`
+Thanks
+===
+- Category: `blockchain`
+- Final point value: 100
+- Author: `fkil`
 
 ## Challenge Description
 
@@ -21,4 +22,3 @@ In particular, the process is the following:
  3. Compile the contracts with the `solcx` module to get ABI and bytecode so that we can call the contract
  4. Create respective `w3.eth.contract` objects to communicate with the contracts.
  5. Call `chal_instance.functions.withdraw(balance).transact()` to steal money
-

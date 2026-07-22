@@ -1,8 +1,10 @@
-# Archventure Time
- - Category: rev
- - Final point value: 135
- - Number of solves: 41
- - Solved by: `マニ`, `fkil`
+Archventure Time
+===
+- Category: `rev`
+- Final point value: 135
+- Number of solves: 41
+- Author: `fkil`
+- Solved by: `マニ`, `fkil`
 
 ## Challenge Description
 

@@ -1,9 +1,7 @@
-# Writeup: Painted Black (WHY2025 CTF)
-
-- **Event:** [WHY2025 CTF](https://ctf.why2025.org/) ([CTFTime](https://ctftime.org/event/2680))
-- **Challenge:** Painted Black
-- **Category:** Forensics
-- **Solved by:** [dopri](https://github.com/DoPri/)
+Painted Black
+===
+- Category: `forensics`
+- Author: `dopri`
 
 We are provided with a macro-enabled Word document `case-2025-0412-public.docm`.
 

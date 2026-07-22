@@ -1,8 +1,9 @@
-# Boombox
- - Category: crypto
- - Final point value: 126
- - Number of solves: 47
- - Solved by: `fkil`
+Boombox
+===
+- Category: `crypto`
+- Final point value: 126
+- Number of solves: 47
+- Author: `fkil`
 
 ### Challenge Description
 
@@ -15,4 +16,3 @@ The challenge implements the [Merkle–Hellman knapsack cryptosystem](https://en
 As 42 bits is not divisible by 8, each block has partial bits of a character at the end or beginning or both. As such, for each block we created three bitsets, one for the beginning, one for the middle characters and one for the end.
 
 Brute-forcing could be easily parallelized in Rust via `par_iter()` from the `rayon` crate. On an i5-13600K it took roughly 1.5 hours to get the flag.
-
